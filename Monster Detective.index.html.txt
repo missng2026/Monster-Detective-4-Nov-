@@ -1,0 +1,97 @@
+Create a complete, fully functional single-file HTML5 interactive micro-game for Primary 1 students based on the design specification below. The code must contain HTML, CSS (embedded in <style>), and JavaScript (embedded in <script>) in ONE self-contained file with no external audio/image dependency issues (use HTML5 Canvas/SVG/CSS shapes and Web Audio API or synthesized speech).
+
+---
+
+### 1. Learning Purpose
+- Target Audience: Primary 1 (P.1 / Age 6-7) ESL / EFL students in Hong Kong.
+- Subject: English Language (Vocabulary & Listening/Reading Comprehension).
+- Topic: Target Adjectives — `big`, `small`, `fat`, `thin`, `short`, `long`.
+- Educational Goal: 
+  1. Identify and differentiate the 6 target adjectives through visual, textual, and audio cues.
+  2. Associate target adjectives with monster physical traits (body size, weight, limbs, tails).
+  3. Complete 3 progressive cases within a 5-minute learning loop.
+
+---
+
+### 2. Game Concept
+- Game Title: Monster Detective Agency (怪獸偵探社)
+- Story Background: Mischievous monsters are hiding in Monster Town! The Chief Detective needs a smart P.1 rookie detective to solve case files by identifying the right monsters based on witness reports.
+- Student Role: Junior Detective.
+- Core Mission: Inspect suspect line-ups, read/listen to case clues, and tap/drag evidence stamps onto the matching suspect.
+- Win Condition: Successfully catch the correct monster in all 3 Level Cases (Level 1, Level 2, Level 3) to earn the "Master Detective Badge".
+
+---
+
+### 3. Learning Journey & Game Flow
+1. Welcome Screen: Short story intro ("Welcome to Monster Detective Agency!"), instructions with audio button, and a prominent "START CASE" button.
+2. Level 1 (Case #1: Body Size - Big vs Small):
+   - Clue text & Audio prompt: "The suspect is BIG!"
+   - Suspect Line-up: 4 distinct procedural SVG/Canvas monsters (e.g., 1 Big Fat, 1 Small Thin, 1 Long, 1 Short).
+   - Action: Tap the suspect matching "BIG".
+3. Level 2 (Case #2: Body Shape & Limbs - Fat vs Thin, Long vs Short):
+   - Clue text & Audio prompt: "Look for a monster with a LONG tail and THIN arms!"
+   - Suspect Line-up: 4 monsters with varied tail/arm proportions.
+   - Action: Drag & Drop the "ARREST" magnifying glass onto the correct monster.
+4. Level 3 (Case #3: Multi-Feature Challenge - Combination of 3 Adjectives):
+   - Clue text & Audio prompt: "Catch the thief! He is SMALL, FAT, and has a SHORT tail!"
+   - Suspect Line-up: 4 tricky suspects with contrasting features.
+   - Action: Interactive Detective Checklist (Tick/Select feature tags `[Small]` `[Fat]` `[Short tail]` and tap "CONFIRM ARREST").
+5. Victory Screen: Celebratory confetti animation, badge display, score summary, and a "PLAY AGAIN" button.
+
+---
+
+### 4. Game Mechanics (Multi-Interactive Operations)
+- Level 1 - Single Click / Tap to Identify: Tap the matching suspect monster card.
+- Level 2 - Drag and Drop: Drag the "ARREST" stamp tool from the Detective Toolkit and drop it directly onto the target suspect card.
+- Level 3 - Multi-Feature Checklist & Confirmation: Click feature badges on a clue panel (`Small`, `Fat`, `Short Tail`) to match the suspect, then submit the choice.
+- Audio Support: Integrated Text-to-Speech (using browser `window.speechSynthesis`) or custom Web Audio bleeps for all clue sentences and adjective pronunciations.
+
+---
+
+### 5. Questions & Content Matrix
+
+| Level | Case File Clue Sentence | Target Vocabulary | Correct Monster Attributes | Distractor Monsters |
+| :--- | :--- | :--- | :--- | :--- |
+| **Level 1** | "Case #1: Find the suspect! The monster is **BIG** and **FAT**." | `big`, `fat` | Huge round belly monster | 1 small thin, 1 long snake-like, 1 short tiny monster |
+| **Level 2** | "Case #2: Clue updated! The suspect has a **LONG** neck and **THIN** legs." | `long`, `thin` | Monster with super long neck & stick legs | 1 short neck fat legs, 1 big round monster, 1 small short neck monster |
+| **Level 3** | "Case #3: Urgent! Catch the monster that is **SMALL**, **FAT**, with a **SHORT** tail!" | `small`, `fat`, `short` | Small height, chubby body, tiny stubby tail | 1 big fat long tail, 1 small thin long tail, 1 big thin short tail |
+
+---
+
+### 6. Feedback & Hint Design
+- Instant Feedback upon Action:
+  - Correct Selection: 
+    - Visual: Screen flashes light green, golden star particles spawn, green checkmark overlay, suspect gets handcuffed animation.
+    - Audio: Cheerful chime + Text-to-Speech reads the full sentence (e.g., "Great job! The monster is big and fat!").
+    - Action: Auto-advance to the next case after a 1.5-second pause.
+  - Incorrect Selection:
+    - Visual: Subtle card shake animation (no harsh red error screens), gentle orange highlight showing the mistaken feature.
+    - Audio: Friendly "Uh-oh, try again!" voice prompt.
+    - Pedagogical Hint System: Text speech bubble appears from the Chief Detective (e.g., "Hint: Look closely at the tail! Is it LONG or SHORT?"), allowing the student to try again immediately without losing score penalties.
+
+---
+
+### 7. Difficulty Progression
+- Level 1 (Basic Recognition): Focuses on 1-2 primary contrasting adjectives (Big vs Small, Fat vs Thin). High contrast visuals.
+- Level 2 (Detailed Observation): Combines 2 body attributes (Long/Short limbs + Fat/Thin body). Moderate contrast.
+- Level 3 (Synthesis & Multi-step Logic): Integrates 3 target adjectives simultaneously. Requires comparing multiple features before making a final decision.
+
+---
+
+### 8. Student Experience (UI/UX for P.1 Kids)
+- Visual Style: Bright, friendly cartoon aesthetic (using CSS flex/grid layout, smooth border-radii, vibrant colors like yellow, cyan, soft purple, pastel green).
+- Typography: Large, highly readable round fonts (e.g., Arial, Comic Sans MS, or system round fonts), font-size ≥ 22px for clues, ≥ 28px for titles.
+- Layout: 
+  - Top: Progress bar (Case 1/3, 2/3, 3/3), Audio Mute toggle, Chief Detective icon with clue bubble.
+  - Center: Interactive Suspect Stage (grid of 4 cards on desktop, 2x2 grid on tablet/mobile).
+  - Bottom: Action toolkit (Magnifying glass, Stamps, Checklists).
+- Touch Friendly: Minimum touch target size 60x60px. Full support for finger drag & drop on iOS/Android tablets and desktop mouse events.
+- No Login/Account Required: Plays instantly in browser memory.
+
+---
+
+### 9. Technical Requirements
+- Single-File Output: Deliver raw, fully working standard code inside standard ```html ``` block containing html, css, and js.
+- Responsive Design: Adapts seamlessly to 1024x768 (iPad/Tablet), mobile screen portrait/landscape, and desktop screens.
+- Zero External Assets: All graphics MUST be rendered natively via CSS, inline SVG icons, or HTML5 Canvas. All sound effects generated via standard Browser Web Audio API / Web Speech API (`speechSynthesis`).
+- Performance: Lightweight, 60fps animations, cross-browser compatible (Chrome, Safari, Edge, Firefox).
